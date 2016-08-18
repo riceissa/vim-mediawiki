@@ -3,11 +3,20 @@ if exists('g:loaded_mediawiki_filetype_highlighting')
 endif
 let g:loaded_mediawiki_filetype_highlighting = 1
 
-nnoremap <buffer> j gj
-nnoremap <buffer> k gk
-vnoremap <buffer> j gj
-vnoremap <buffer> k gk
-nnoremap <buffer> gj j
-nnoremap <buffer> gk k
-vnoremap <buffer> gj j
-vnoremap <buffer> gk k
+noremap <buffer> j gj
+noremap <buffer> k gk
+noremap <buffer> gj j
+noremap <buffer> gk k
+noremap <buffer> 0 g0
+noremap <buffer> g0 0
+noremap <buffer> ^ g^
+noremap <buffer> g^ ^
+noremap <buffer> $ g$
+noremap <buffer> g$ $
+noremap <buffer> D dg$
+noremap <buffer> C cg$
+noremap <buffer> A g$a
+
+setlocal wrap
+setlocal linebreak
+setlocal textwidth=0
