@@ -3,11 +3,11 @@ if exists('g:loaded_mediawiki_filetype_highlighting')
 endif
 let g:loaded_mediawiki_filetype_highlighting = 1
 
-autocmd FileType mediawiki nnoremap <buffer> j gj
-autocmd FileType mediawiki nnoremap <buffer> k gk
-autocmd FileType mediawiki vnoremap <buffer> j gj
-autocmd FileType mediawiki vnoremap <buffer> k gk
-autocmd FileType mediawiki nnoremap <buffer> gj j
-autocmd FileType mediawiki nnoremap <buffer> gk k
-autocmd FileType mediawiki vnoremap <buffer> gj j
-autocmd FileType mediawiki vnoremap <buffer> gk k
+nnoremap <buffer> j gj
+nnoremap <buffer> k gk
+vnoremap <buffer> j gj
+vnoremap <buffer> k gk
+nnoremap <buffer> gj j
+nnoremap <buffer> gk k
+vnoremap <buffer> gj j
+vnoremap <buffer> gk k
