@@ -1,7 +1,7 @@
-if exists('g:loaded_mediawiki_filetype_highlighting')
+if exists('g:loaded_mediawiki_filetype')
   finish
 endif
-let g:loaded_mediawiki_filetype_highlighting = 1
+let g:loaded_mediawiki_filetype = 1
 
 noremap <buffer> j gj
 noremap <buffer> k gk
