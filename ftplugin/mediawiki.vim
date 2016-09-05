@@ -4,3 +4,4 @@ endif
 let g:loaded_mediawiki_filetype = 1
 
 setlocal textwidth=0
+setlocal commentstring=<!--%s-->
