@@ -9,9 +9,9 @@ endif
 syn keyword mediawikiKeyword accessdate
 
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
-hi def link mediawikiRef Comment
 
 hi link mediawikiKeyword Keyword
+hi def link mediawikiRef Comment
 
 let b:current_syntax = "mediawiki"
 if main_syntax ==# 'mediawiki'
