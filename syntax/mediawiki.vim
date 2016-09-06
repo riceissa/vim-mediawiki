@@ -11,7 +11,9 @@ syn keyword mediawikiKeyword cite web ref rp publisher first last first1 last1
 syn keyword mediawikiKeyword first2 last2
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
 
-hi def link mediawikiKeyword Type
+syn cluster mediawikiCluster contains=mediawikiKeyword,@NoSpell
+
+hi def link mediawikiCluster Keyword
 hi def link mediawikiRef Comment
 
 let b:current_syntax = "mediawiki"
