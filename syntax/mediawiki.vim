@@ -6,14 +6,14 @@ if !exists('main_syntax')
   let main_syntax = 'mediawiki'
 endif
 
-syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl
-syn keyword mediawikiKeyword cite web ref rp publisher first last first1 last1
-syn keyword mediawikiKeyword first2 last2
+syn match mediawikiKeyword "cite web" contains=@NoSpell
+syn match mediawikiKeyword "accessate" contains=@NoSpell
+" syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl
+" syn keyword mediawikiKeyword cite web ref rp publisher first last first1 last1
+" syn keyword mediawikiKeyword first2 last2
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
 
-syn cluster mediawikiCluster contains=mediawikiKeyword,@NoSpell
-
-hi def link mediawikiCluster Keyword
+hi def link mediawikiKeyword Keyword
 hi def link mediawikiRef Comment
 
 let b:current_syntax = "mediawiki"
