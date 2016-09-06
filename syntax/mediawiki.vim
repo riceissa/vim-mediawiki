@@ -7,8 +7,8 @@ if !exists('main_syntax')
 endif
 
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
-syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl
-syn keyword mediawikiKeyword cite ref rp
+syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl contains=@NoSpell
+syn keyword mediawikiKeyword cite ref rp contains=@NoSpell
 
 hi def link mediawikiKeyword Keyword
 hi def link mediawikiRef Comment
