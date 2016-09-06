@@ -10,7 +10,7 @@ syn match mediawikiKeyword contained "\<\(cite web\|accessdate\|archivedate\|arc
 " syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl
 " syn keyword mediawikiKeyword cite web ref rp publisher first last first1 last1
 " syn keyword mediawikiKeyword first2 last2
-syn match mediawikiTemplate "{{.*}}" contains=mediawikiKeyword
+syn region mediawikiTemplate start="{{" end="}}" contains=mediawikiKeyword
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
 
 hi def link mediawikiKeyword Keyword
