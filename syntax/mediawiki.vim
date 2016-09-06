@@ -7,9 +7,10 @@ if !exists('main_syntax')
 endif
 
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
-syn keyword mediawikiKeyword accessdate
+syn keyword mediawikiKeyword accessdate date title
+syn keyword mediawikiKeyword cite\ web
 
-hi link mediawikiKeyword Keyword
+hi def link mediawikiKeyword Keyword
 hi def link mediawikiRef Comment
 
 let b:current_syntax = "mediawiki"
