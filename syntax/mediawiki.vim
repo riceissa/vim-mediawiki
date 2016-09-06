@@ -6,8 +6,7 @@ if !exists('main_syntax')
   let main_syntax = 'mediawiki'
 endif
 
-syn match mediawikiKeyword "cite web" contains=@NoSpell
-syn match mediawikiKeyword "accessate" contains=@NoSpell
+syn match mediawikiKeyword "cite web\|accessdate\|archivedate\|archiveurl\|rp\|publisher\|first1\|last1\|first\|last\|first1\|last2" contains=@NoSpell
 " syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl
 " syn keyword mediawikiKeyword cite web ref rp publisher first last first1 last1
 " syn keyword mediawikiKeyword first2 last2
