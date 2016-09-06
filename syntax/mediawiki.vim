@@ -8,7 +8,7 @@ endif
 
 syn keyword mediawikiKeyword accessdate date title url archivedate archiveurl
 syn keyword mediawikiKeyword cite ref rp
-syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell,mediawikiKeyword
+syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
 
 hi def link mediawikiKeyword Keyword
 hi def link mediawikiRef Comment
