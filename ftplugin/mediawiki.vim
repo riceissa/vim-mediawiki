@@ -29,5 +29,7 @@ fun! CompleteMediawiki(findstart, base)
     return res
   endif
 endfun
-setlocal completefunc=CompleteMediawiki
+if exists("+omnifunc") && &omnifunc == ""
+  setlocal completefunc=CompleteMediawiki
+endif
 setlocal omnifunc=CompleteMediawiki
