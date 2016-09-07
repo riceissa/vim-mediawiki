@@ -33,8 +33,8 @@ if exists("+completefunc") || exists("+omnifunc")
 endif
 
 if exists("+omnifunc")
-  setlocal completefunc=CompleteMediawiki
-endif
-if exists("+completefunc")
   setlocal omnifunc=CompleteMediawiki
+endif
+if exists("+completefunc") && &completefunc == ""
+  setlocal completefunc=CompleteMediawiki
 endif
