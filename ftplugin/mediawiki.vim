@@ -6,7 +6,7 @@ let g:loaded_mediawiki_filetype = 1
 setlocal textwidth=0
 setlocal commentstring=<!--%s-->
 
-if exists("+completefunc") || exists("+omnifunc")
+if exists("+omnifunc")
   " From :help complete-functions
   fun! CompleteMediawiki(findstart, base)
     if a:findstart
@@ -34,7 +34,4 @@ endif
 
 if exists("+omnifunc")
   setlocal omnifunc=CompleteMediawiki
-endif
-if exists("+completefunc") && &completefunc == ""
-  setlocal completefunc=CompleteMediawiki
 endif
