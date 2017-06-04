@@ -18,7 +18,6 @@ if exists("+omnifunc")
       endwhile
       return start
     else
-      " find months matching with "a:base"
       let res = []
       let candidates = ["cite web", "accessdate", "archivedate",
         \ "archiveurl", "publisher"]
