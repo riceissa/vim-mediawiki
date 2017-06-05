@@ -21,6 +21,13 @@ if exists("+omnifunc")
       let res = []
       let candidates = ["cite web", "accessdate", "archivedate",
         \ "archiveurl", "publisher"]
+      for i in range(1, line('$'))
+        let line = getline(i)
+        let m = matchstr(line, 'name="[A-Za-z0-9_]\+"')
+        if m !=# ""
+          call add(candidates, m[len('name="') : -len('"') - 1])
+        endif
+      endfor
       for m in candidates
         if m =~ '^' . a:base
           call add(res, m)
