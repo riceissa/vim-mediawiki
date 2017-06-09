@@ -12,6 +12,7 @@ syn match mediawikiKeyword contained "\<\(cite web\|accessdate\|archivedate\|arc
 " syn keyword mediawikiKeyword first2 last2
 syn region mediawikiTemplate start="{{" end="}}" contains=mediawikiKeyword
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell
+syn match mediawikiWikilink "\[\[wikipedia:" contains=@NoSpell
 
 hi def link mediawikiKeyword Keyword
 hi def link mediawikiRef Comment
