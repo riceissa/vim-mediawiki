@@ -1,5 +1,5 @@
 " From :help complete-functions
-function! mediawiki#mediawikicomplete#Complete(findstart, base)
+function! mediawikicomplete#Complete(findstart, base)
   if a:findstart
     " locate the start of the word
     let line = getline('.')
