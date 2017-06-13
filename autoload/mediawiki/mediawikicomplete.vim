@@ -16,13 +16,14 @@ function! mediawiki#mediawikicomplete#Complete(findstart, base)
     " Find ref names
     for i in range(1, line('$'))
       let line = getline(i)
-      let m = matchstr(line, 'name="[A-Za-z0-9_]\+"')
-      if m !=# ""
+      let l = matchstrpos(line, 'name="[A-Za-z0-9_]\+"')
+      while l[0] !=# ""
         " See :help complete-items. A ref name is not really a variable, but
         " it's quite useful to visually distinguish ref name completions from
         " keywords
-        call add(candidates, {'word': m[len('name="') : -len('"') - 1], 'kind': 'v'})
-      endif
+        call add(candidates, {'word': l[0][len('name="') : -len('"') - 1], 'kind': 'v'})
+        let l = matchstrpos(line, 'name="[A-Za-z0-9_]\+"', l[2])
+      endwhile
     endfor
 
     for m in candidates
