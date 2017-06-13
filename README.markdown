@@ -1,6 +1,7 @@
 # mediawiki.vim
 
-Install with the usual plugin managers, e.g. with vim-plug:
+Install with the usual plugin managers, e.g. with
+[vim-plug](https://github.com/junegunn/vim-plug):
 
     Plug 'riceissa/vim-mediawiki'
 
