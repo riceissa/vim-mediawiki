@@ -11,17 +11,23 @@ function! mediawiki#mediawikicomplete#Complete(findstart, base)
   else
     let res = []
     let candidates = ["cite web", "accessdate", "archivedate",
-      \ "archiveurl", "publisher"]
+      \ "archiveurl", "publisher", "quote", "website"]
+
+    " Find ref names
     for i in range(1, line('$'))
       let line = getline(i)
       let m = matchstr(line, 'name="[A-Za-z0-9_]\+"')
       if m !=# ""
-        echom "on line" i "found" m
-        call add(candidates, m[len('name="') : -len('"') - 1])
+        " See :help complete-items. A ref name is not really a variable, but
+        " it's quite useful to visually distinguish ref name completions from
+        " keywords
+        call add(candidates, {'word': m[len('name="') : -len('"') - 1], 'kind': 'v'})
       endif
     endfor
+
     for m in candidates
-      if m =~ '^' . a:base
+      let s = type(m) == v:t_dict ? m['word'] : m
+      if s =~ '^' . a:base
         call add(res, m)
       endif
     endfor
