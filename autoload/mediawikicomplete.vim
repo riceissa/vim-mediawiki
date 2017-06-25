@@ -10,8 +10,21 @@ function! mediawikicomplete#Complete(findstart, base)
     return start
   else
     let res = []
-    let candidates = ["cite web", "accessdate", "archivedate",
-      \ "archiveurl", "publisher", "quote", "website"]
+    let candidates = ["cite web","dts","rp"]
+
+    " Complete template field. If the word or words before the cursor begins
+    " with a bar, then we assume it's a template field.
+    let line = getline('.')
+    let start = col('.') - 1
+    if line[start - 1] =~ '|[A-Za-z0-9_ -]*'
+      for m in ["url","title","last","first","author","last2","first2","date",
+                \       "year","website","publisher","archiveurl","archivedate",
+                \       "quote","accessdate"]
+        if m =~ '^' . a:base
+          call add(res, m)
+        endif
+      endfor
+    endif
 
     " Find ref names
     for i in range(1, line('$'))
