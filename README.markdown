@@ -5,7 +5,9 @@
 Install with the usual plugin managers, e.g. with
 [vim-plug](https://github.com/junegunn/vim-plug):
 
-    Plug 'riceissa/vim-mediawiki'
+```vim
+Plug 'riceissa/vim-mediawiki'
+```
 
 ## Omni-completion
 
