@@ -1,5 +1,7 @@
 # mediawiki.vim
 
+![](https://raw.github.com/riceissa/vim-mediawiki/gh-pages/actionshot.png)
+
 ## Installation
 
 Install with the usual plugin managers, e.g. with
