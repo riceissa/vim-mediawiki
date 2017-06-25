@@ -1,9 +1,13 @@
 # mediawiki.vim
 
+## Installation
+
 Install with the usual plugin managers, e.g. with
 [vim-plug](https://github.com/junegunn/vim-plug):
 
     Plug 'riceissa/vim-mediawiki'
+
+## Omni-completion
 
 If you want omni-completion, add the following autocommand:
 
@@ -21,6 +25,8 @@ exe 'autocmd FileType mediawiki inoremap <buffer><expr> { '
 autocmd FileType mediawiki inoremap <buffer><expr> <bar> col(".") == 1 ?
       \ "<bar>" : "<bar>\<C-X>\<C-O>\<C-P>"
 ```
+
+## Surround
 
 If you do a lot of work on a self-hosted wiki, then you might want to install
 [surround.vim](https://github.com/tpope/vim-surround) and add the following
