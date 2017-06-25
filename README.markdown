@@ -1,6 +1,6 @@
 # mediawiki.vim
 
-![](https://raw.github.com/riceissa/vim-mediawiki/gh-pages/actionshot.png)
+![](https://raw.githubusercontent.com/riceissa/vim-mediawiki/gh-pages/actionshot.gif)
 
 ## Installation
 
