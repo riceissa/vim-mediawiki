@@ -24,6 +24,8 @@ or `|` (start of a template field), you can add the following:
 " Run in exe because the open curly brace messes up syntax highlighting
 exe 'autocmd FileType mediawiki inoremap <buffer><expr> { '
       \ . 'getline(".")[col(".") - 2] == "{" ? "{\<C-X>\<C-O>\<C-P>" : "{"'
+" A bar at the start of a line is likely to be the start of a table separator,
+" so only start the completion if it is not the first character on the line
 autocmd FileType mediawiki inoremap <buffer><expr> <bar> col(".") == 1 ?
       \ "<bar>" : "<bar>\<C-X>\<C-O>\<C-P>"
 ```
