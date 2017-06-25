@@ -7,18 +7,35 @@ Install with the usual plugin managers, e.g. with
 
 If you want omni-completion, add the following autocommand:
 
-    autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
+```vim
+autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
+```
+
+If you want automatic omni-completion after typing `{{` (start of a template)
+or `|` (start of a template field), you can add the following:
+
+```vim
+" Run in exe because the open curly brace messes up syntax highlighting
+exe 'autocmd FileType mediawiki inoremap <buffer><expr> { '
+      \ . 'getline(".")[col(".") - 2] == "{" ? "{\<C-X>\<C-O>\<C-P>" : "{"'
+autocmd FileType mediawiki inoremap <buffer><expr> <bar> col(".") == 1 ?
+      \ "<bar>" : "<bar>\<C-X>\<C-O>\<C-P>"
+```
 
 If you do a lot of work on a self-hosted wiki, then you might want to install
 [surround.vim](https://github.com/tpope/vim-surround) and add the following
 custom surround:
 
-    autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
+```vim
+autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
+```
 
 If you repeat ref names a lot, you might want to add the following custom
 surround:
 
-    autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
+```vim
+autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
+```
 
 ## TODO
 
