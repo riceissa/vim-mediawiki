@@ -10,16 +10,25 @@ function! mediawikicomplete#Complete(findstart, base)
     return start
   else
     let res = []
-    let candidates = ["cite web","dts","rp"]
+    let line = getline('.')
+    let start = col('.') - 1
 
     " Complete template field. If the word or words before the cursor begins
     " with a bar, then we assume it's a template field.
-    let line = getline('.')
-    let start = col('.') - 1
     if line[start - 1] =~ '|[A-Za-z0-9_ -]*'
       for m in ["url","title","last","first","author","last2","first2","date",
                 \       "year","website","publisher","archiveurl","archivedate",
                 \       "quote","accessdate"]
+        if m =~ '^' . a:base
+          call add(res, m)
+        endif
+      endfor
+    endif
+
+    " Template name completion
+    if line[start - 1] =~ '{[A-Za-z0-9_ -]*'
+      for m in ["cite web","dts","rp","as of","cite book","cite journal",
+                \       "cite news","cquote","reflist","snd","quote"]
         if m =~ '^' . a:base
           call add(res, m)
         endif
@@ -34,17 +43,15 @@ function! mediawikicomplete#Complete(findstart, base)
         " See :help complete-items. A ref name is not really a variable, but
         " it's quite useful to visually distinguish ref name completions from
         " keywords
-        call add(candidates, {'word': l[0][len('name="') : -len('"') - 1], 'kind': 'v'})
+        let m = l[0][len('name="') : -len('"') - 1]
+        if m =~ '^' . a:base
+          call add(res, {'word': m, 'kind': 'v'})
+        endif
         let l = matchstrpos(line, 'name="[A-Za-z0-9_]\+"', l[2])
       endwhile
     endfor
 
-    for m in candidates
-      let s = type(m) == v:t_dict ? m['word'] : m
-      if s =~ '^' . a:base
-        call add(res, m)
-      endif
-    endfor
     return res
+
   endif
 endfunction
