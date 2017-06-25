@@ -15,6 +15,11 @@ custom surround:
 
     autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
 
+If you repeat ref names a lot, you might want to add the following custom
+surround:
+
+    autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
+
 ## TODO
 
 - incorporate features from <https://github.com/chikamichi/mediawiki.vim>, which
