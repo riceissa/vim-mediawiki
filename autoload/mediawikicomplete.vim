@@ -38,7 +38,8 @@ function! mediawikicomplete#Complete(findstart, base)
     " Find ref names
     for i in range(1, line('$'))
       let line = getline(i)
-      let l = matchstrpos(line, 'name="[A-Za-z0-9_]\+"')
+      let s = 'name="[A-Za-z0-9_.,'': -]\+"'
+      let l = matchstrpos(line, s)
       while l[0] !=# ""
         " See :help complete-items. A ref name is not really a variable, but
         " it's quite useful to visually distinguish ref name completions from
@@ -47,7 +48,7 @@ function! mediawikicomplete#Complete(findstart, base)
         if m =~ '^' . a:base
           call add(res, {'word': m, 'kind': 'v'})
         endif
-        let l = matchstrpos(line, 'name="[A-Za-z0-9_]\+"', l[2])
+        let l = matchstrpos(line, s, l[2])
       endwhile
     endfor
 
