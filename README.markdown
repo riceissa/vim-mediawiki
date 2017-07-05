@@ -4,11 +4,19 @@
 
 ## Installation
 
-Install with the usual plugin managers, e.g. with
+This plugin can be installed with the usual plugin managers.
+
 [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
 Plug 'riceissa/vim-mediawiki'
+```
+
+[pathogen](https://github.com/tpope/vim-pathogen):
+
+```bash
+cd ~/.vim/bundle
+git clone https://github.com/riceissa/vim-mediawiki.git
 ```
 
 ## Omni-completion
