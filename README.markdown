@@ -49,7 +49,8 @@ autocmd FileType mediawiki let b:surround_{char2nr('r')} = "<ref name=\"\r\" />"
 ```
 
 If you've enabled omni-completion, then combined with the ref name surround,
-you can type `<C-S>r<C-X><C-O>` to insert a ref.
+you can type `<C-S>r<C-X><C-O>` to insert a ref, which of course you can map to
+some key with `imap` if you find yourself typing that sequence a lot.
 
 ## TODO
 
