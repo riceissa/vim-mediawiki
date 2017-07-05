@@ -28,9 +28,9 @@ Currently omni-completion supports the following:
   crazy ref names while keeping everything else the same.
 * Template name completion if the character before the cursor is `{`.
 * Template field name completion if the character before the cursor is `|`.
-  Note that currently the "field names" are for `cite web` only, but in the
-  future I might add support for detecting what template one is in, and
-  completing field names for that.
+  Note that currently the "field names" are for [`{{cite web}}`][citeweb] only,
+  but in the future I might add support for detecting what template one is in,
+  and completing field names for that.
 
 If you want automatic omni-completion after typing `{{` (start of a template)
 or `|` (start of a template field), you can add the following:
@@ -73,3 +73,5 @@ some key with `imap` if you find yourself typing that sequence a lot.
 ## License
 
 Distributed under the same terms as Vim itself. See `:help license`.
+
+[citeweb]: https://en.wikipedia.org/wiki/Template:Cite_web
