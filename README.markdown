@@ -19,6 +19,19 @@ If you want omni-completion, add the following autocommand:
 autocmd FileType mediawiki setlocal omnifunc=mediawikicomplete#Complete
 ```
 
+Currently omni-completion supports the following:
+
+* Ref name completion anywhere. Vim's default keyword completion with `<C-N>`
+  and `<C-P>` don't work so well when ref names contain characters like `-`,
+  `.`, and `:`. Setting `'iskeyword'` is one way to get around this, but doing
+  so changes a lot of other things. So ref name completion deals with all the
+  crazy ref names while keeping everything else the same.
+* Template name completion if the character before the cursor is `{`.
+* Template field name completion if the character before the cursor is `|`.
+  Note that currently the "field names" are for `cite web` only, but in the
+  future I might add support for detecting what template one is in, and
+  completing field names for that.
+
 If you want automatic omni-completion after typing `{{` (start of a template)
 or `|` (start of a template field), you can add the following:
 
