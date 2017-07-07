@@ -64,7 +64,9 @@ autocmd FileType mediawiki let b:surround_{char2nr('w')} = "[[wikipedia:\r|]]"
 
 This will allow you to wikilink to Wikipedia's `pagename` by typing
 `<C-S>wpagename`. And because of the [pipe trick](https://en.wikipedia.org/wiki/Help:Pipe_trick),
-you don't need to type `pagename` a second time following the pipe.
+you don't need to type `pagename` a second time following the pipe;
+`[[wikipedia:pagename|]]` will be transformed to
+`[[wikipedia:pagename|pagename]]` upon saving.
 
 If you repeat ref names a lot, you might want to add the following custom
 surround:
