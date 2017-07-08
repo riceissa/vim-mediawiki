@@ -14,10 +14,12 @@ syn match mediawikiURL `\([A-Za-z]\+:\)\?//[^\t'" <>|]\+[A-Za-z0-9/]` contains=@
 syn region mediawikiTemplate start="{{" end="}}" contains=mediawikiTemplateName
 syn region mediawikiRef start="\v\<ref[^>/]*\>?" end="\v(\<\/ref\>|/\>)" contains=@NoSpell,mediawikiTemplateName
 syn match mediawikiWikilink "\[\[wikipedia:" contains=@NoSpell
+syn match mediawikiTodo `\<\(TODO\|FIXME\|NOTES\?\|XXX\)\>` contains=@NoSpell
 
 hi def link mediawikiTemplateName Keyword
 hi def link mediawikiRef Comment
 hi def link mediawikiURL Constant
+hi def link mediawikiTodo Todo
 
 let b:current_syntax = "mediawiki"
 if main_syntax ==# 'mediawiki'
