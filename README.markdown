@@ -79,6 +79,24 @@ If you've enabled omni-completion, then combined with the ref name surround,
 you can type `<C-S>r<C-X><C-O>` to insert a ref, which of course you can map to
 some key with `imap` if you find yourself typing that sequence a lot.
 
+## Navigating between files
+
+Vim has the ability to navigate between files in the file system. That means if
+you are working on a wiki and have a bunch of pages that link to each other
+using MediaWiki's `[[wikilink]]` syntax, you can travel between them using key
+combinations like `gf` and `<C-W><C-F>`. (See e.g. `:help gf` and
+`:help CTRL-W_CTRL-F`.) But for this to work, you need to set some options:
+
+```vim
+" See https://en.wikipedia.org/wiki/Wikipedia:Page_name#Technical_restrictions_and_limitations
+" and
+" https://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(technical_restrictions)
+autocmd FileType mediawiki setlocal isfname=@,32,48-57,/,.,-,_,+,,,$,%,:,@-@,!,~,=
+
+" Translate spaces to underscores and add a '.mediawiki' extension
+autocmd FileType mediawiki setlocal includeexpr=substitute(substitute(v:fname,'\ ','_','g'),'$','.mediawiki','')
+```
+
 ## TODO
 
 - incorporate features from <https://github.com/chikamichi/mediawiki.vim>, which
